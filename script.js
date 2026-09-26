@@ -32,16 +32,24 @@ function updateTotalPrice(amount) {
         item.textContent= `${newProduct.name} $${newProduct.price} `
        
         cart.appendChild(item)
+
+        let deletebtn= document.createElement("button")
+        deletebtn.textContent="Delete";
+
+        item.appendChild(deletebtn)
+
     
  })
+deletebtn.addEventListener('click', (event) {
+     const item = event.target.closest('li');
+  const price = parseFloat(item.dataset.price);
+  updateTotalPrice(-price);
+  item.remove();
+}
 
-//  for(ul.innerhtml){
-//         let deletebtn = document.createElement('button');
-//     deletebtn.textContent="Delete";
-//     .append(productInfo)
-// //  }
-//         if()
-// // Function to remove an item
+
+
+// Function to remove an item
 // function removeItem(event) {
 //   const item = event.target.closest('li');
 //   const price = parseFloat(item.dataset.price);
