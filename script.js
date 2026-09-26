@@ -18,6 +18,7 @@ function updateTotalPrice(amount) {
     if( !productNameInput.value || !productPriceInput.value){
         // alert("please enter product")
     }
+    
     let productName = productNameInput.value
     let priceInput= productPriceInput.value
     
@@ -38,14 +39,15 @@ function updateTotalPrice(amount) {
 
         item.appendChild(deletebtn)
 
-    
- })
-deletebtn.addEventListener('click', (event) {
+        deletebtn.addEventListener('click', (event)=>{
      const item = event.target.closest('li');
   const price = parseFloat(item.dataset.price);
   updateTotalPrice(-price);
   item.remove();
-}
+})
+    
+ })
+
 
 
 
